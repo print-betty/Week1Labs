@@ -62,6 +62,9 @@ t.id === id ? { ...t, done: !t.done } : t
 )
 );
 }
+function handleDeleteTask(id) {
+setTasks(tasks.filter((t) => t.id !== id));
+}
 return (
 
 <View style={styles.container}>
@@ -105,6 +108,7 @@ renderItem={({ item }) => (
 title={item.title}
 done={item.done}
 onToggle={() => handleToggleTask(item.id)}
+onDelete={() => handleDeleteTask(item.id)}
 />
 )}
 
